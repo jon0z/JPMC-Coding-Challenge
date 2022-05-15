@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">JPMC Coding Challenge</string>
+    <string name="api_url">https://data.cityofnewyork.us/</string>
+</resources>
