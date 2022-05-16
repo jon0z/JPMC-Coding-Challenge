@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">JPMC Coding Challenge</string>
     <string name="api_url">https://data.cityofnewyork.us/</string>
+    <string name="detailsFragmentTag">schoolDetailsFragment</string>
+    <string name="nullSchoolListWarningMsg">Unable to get schools list. Please try swiping down to refresh</string>
+    <string name="gradesPlaceholderTxt">Grades: </string>
+    <string name="studentsPlaceholderTxt">Students: </string>
+    <string name="mathPlaceholderText">"Math: "</string>
+    <string name="readingPlaceholderText">"Reading: "</string>
+    <string name="writingPlaceholderText">"Writing: "</string>
+    <string name="missingSATResultsWarningMessage">We are having problems getting the data, please try again later.</string>
+    <string name="missingSchoolDataWarningMessage">Looks like the school data is missing. We\'re sorry</string>
 </resources>

@@ -3,14 +3,63 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:id="@+id/cardview"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="8dp">
 
-    <TextView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/school_name"
-        android:text="SCHOOL NAME"
-        android:textColor="@color/black"
-        android:textSize="16sp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/school_name"
+            android:text="SCHOOL NAME"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/school_address"
+            android:text="address line 1"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/school_city_state"
+            android:text="city, state 12345"
+            android:textSize="12sp"/>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="8dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/school_grades"
+                android:text="grades: 6-12"
+                android:textSize="12sp"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/school_number_students"
+                android:text="Students: 500"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:paddingStart="8dp"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 
 </com.google.android.material.card.MaterialCardView>

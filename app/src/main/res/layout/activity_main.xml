@@ -7,9 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".views.MainActivity">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_container"
+        android:visibility="gone"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/listview"/>
-
 </androidx.appcompat.widget.LinearLayoutCompat>

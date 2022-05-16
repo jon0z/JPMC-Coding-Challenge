@@ -1,6 +1,7 @@
 package com.example.jpmccodingchallenge.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class School(
     val dbn: String,
@@ -11,6 +12,7 @@ data class School(
     @SerializedName("academicopportunities1") val academicOpportunities1: String,
     @SerializedName("academicopportunities2") val academicOpportunities2: String,
     @SerializedName("academicopportunities3") val academicOpportunities3: String?,
+    @SerializedName("academicopportunities4") val academicOpportunities4: String?,
     @SerializedName("ell_programs") val ellPrograms: String,
     val neighborhood: String,
     @SerializedName("building_code") val buildingCode: String,
@@ -22,7 +24,7 @@ data class School(
     val subway: String,
     val bus: String,
     val grades2018: String,
-    val finalGrades: String,
+    @SerializedName("finalgrades") val grades: String,
     @SerializedName("total_students") val totalStudents: String,
     @SerializedName("extracurricular_activities") val extracurricularActivities: String,
     @SerializedName("school_sports") val sports: String,
@@ -66,8 +68,4 @@ data class School(
     val bbl: String,
     val nta: String,
     val borough: String,
-
-
-
-
-)
+): Serializable

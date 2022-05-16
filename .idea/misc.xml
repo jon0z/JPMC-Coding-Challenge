@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2390625" />
         <entry key="app/src/main/res/layout/list_card_item.xml" value="0.253125" />
+        <entry key="app/src/main/res/layout/school_details_fragment.xml" value="0.253125" />
       </map>
     </option>
   </component>

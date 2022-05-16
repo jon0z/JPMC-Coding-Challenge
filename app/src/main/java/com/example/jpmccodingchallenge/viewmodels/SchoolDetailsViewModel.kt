@@ -3,17 +3,17 @@ package com.example.jpmccodingchallenge.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
+import com.example.jpmccodingchallenge.models.SATResults
 import com.example.jpmccodingchallenge.networking.Repository
-import com.example.jpmccodingchallenge.models.School
 import kotlinx.coroutines.Dispatchers
 
-class MainActivityViewModel: ViewModel() {
+class SchoolDetailsViewModel : ViewModel() {
     private val repository = Repository()
 
-    fun getSchoolsList(): LiveData<List<School>?> {
+    fun getSATResults(): LiveData<List<SATResults>?> {
         return liveData(Dispatchers.IO){
-            val schoolsList = repository.getSchoolsList()
-            emit(schoolsList)
+            val satResultsList = repository.getSATResults()
+            emit(satResultsList)
         }
     }
 }
