@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         inflateViewBindingAndSetContentView()
+        supportActionBar?.title = getString(R.string.actionBarTitlePlaceholder)
         initializeViewModelAndGetSchoolsList()
     }
 
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.commit {
                 remove(activeFragment)
             }
+            supportActionBar?.title = getString(R.string.actionBarTitlePlaceholder)
         } else {
             super.onBackPressed()
         }

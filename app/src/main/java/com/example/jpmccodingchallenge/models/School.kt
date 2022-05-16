@@ -27,7 +27,7 @@ data class School(
     @SerializedName("finalgrades") val grades: String,
     @SerializedName("total_students") val totalStudents: String,
     @SerializedName("extracurricular_activities") val extracurricularActivities: String,
-    @SerializedName("school_sports") val sports: String,
+    @SerializedName("school_sports") val sports: String?,
     @SerializedName("attendance_rate") val attendanceRate: String,
     @SerializedName("pct_stu_enough_variety") val pctStudentEnoughVariety: String,
     @SerializedName("pct_stu_safe") val pctStudentSafe: String,

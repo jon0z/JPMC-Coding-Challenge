@@ -2,12 +2,20 @@
     <string name="app_name">JPMC Coding Challenge</string>
     <string name="api_url">https://data.cityofnewyork.us/</string>
     <string name="detailsFragmentTag">schoolDetailsFragment</string>
-    <string name="nullSchoolListWarningMsg">Unable to get schools list. Please try swiping down to refresh</string>
+    <string name="nullSchoolListWarningMsg">Unable to get schools list. Please try again later.</string>
     <string name="gradesPlaceholderTxt">Grades: </string>
     <string name="studentsPlaceholderTxt">Students: </string>
-    <string name="mathPlaceholderText">"Math: "</string>
-    <string name="readingPlaceholderText">"Reading: "</string>
-    <string name="writingPlaceholderText">"Writing: "</string>
+    <string name="mathPlaceholderText">Math: </string>
+    <string name="readingPlaceholderText">Reading: </string>
+    <string name="writingPlaceholderText">Writing: </string>
     <string name="missingSATResultsWarningMessage">We are having problems getting the data, please try again later.</string>
     <string name="missingSchoolDataWarningMessage">Looks like the school data is missing. We\'re sorry</string>
+    <string name="contactInformationPlaceholderText">Contact Information</string>
+    <string name="emailPlaceholderText">email: </string>
+    <string name="satAvgScoresPlaceholderText">SAT Average Scores:</string>
+    <string name="academic_opportunities_placeholder_text">Academic Opportunities:</string>
+    <string name="website_placeholder_text">"website: "</string>
+    <string name="phone_placeholder_text">"phone: "</string>
+    <string name="schoolSportsPlaceholderText">School Sports</string>
+    <string name="actionBarTitlePlaceholder">NYC High Schools</string>
 </resources>

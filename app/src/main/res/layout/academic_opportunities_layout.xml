@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/academic_oportunities_container"
+    android:paddingTop="8dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/opportunities_placeholder_text"
+        tools:text="@string/academic_opportunities_placeholder_text"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/opportunity_one"
+        tools:text="opportunity 1, opportunity 2, opportunity 3, etc..."
+        android:textSize="12sp"/>
+</androidx.appcompat.widget.LinearLayoutCompat>

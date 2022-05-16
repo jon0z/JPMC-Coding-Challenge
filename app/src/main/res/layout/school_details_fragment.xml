@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.SchoolDetailsFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -12,103 +11,45 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
-
+<!--        <TextView-->
+<!--            android:id="@+id/school_name"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            tools:text="SCHOOL NAME"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textStyle="bold" />-->
         <TextView
-            android:id="@+id/school_name"
+            android:id="@+id/school_overview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            tools:text="SCHOOL NAME"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            tools:text="Some really long description overview goes here"
+            android:textAlignment="viewStart"
+            android:textSize="12sp"
+            android:paddingTop="8dp"/>
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/school_description_container"
+        <include
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp">
+            android:id="@+id/sat_scores_container"
+            layout="@layout/sat_scores_layout"/>
 
-            <TextView
-                android:id="@+id/school_overview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="Some really long description overview goes here"
-                android:textAlignment="viewStart"
-                android:textSize="12sp"
-                android:maxLines="10"/>
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <include
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/academic_oportunities_container"
-            android:paddingTop="8dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/opportunities_placeholder_text"
-                android:text="Academic Opportunities"
-                android:gravity="center_horizontal"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/opportunity_one"
-                tools:text="opportunity 1"
-                android:textSize="12sp"/>
-        </androidx.appcompat.widget.LinearLayoutCompat>
+            android:id="@+id/academic_opportunities_container"
+            layout="@layout/academic_opportunities_layout"/>
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/school_sat_container"
+        <include
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="8dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="SAT Average Scores"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <TextView
-                    android:id="@+id/sat_math_score"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:text="Math: 400"
-                    android:textSize="12sp"/>
-
-                <TextView
-                    android:id="@+id/sat_reading_score"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    tools:text="Reading: 400"
-                    android:textSize="12sp"/>
-
-                <TextView
-                    android:id="@+id/sat_writing_score"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    tools:text="Writing: 400"
-                    android:textSize="12sp"/>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-
+            android:id="@+id/sports_container"
+            android:visibility="gone"
+            layout="@layout/academic_opportunities_layout"/>
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contact_info_container"
+            layout="@layout/contact_info_layout"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </FrameLayout>

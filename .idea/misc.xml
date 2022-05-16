@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/academic_opportunities_layout.xml" value="0.253125" />
+        <entry key="app/src/main/res/layout/actionbar_customview.xml" value="0.1171875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2390625" />
+        <entry key="app/src/main/res/layout/contact_info_layout.xml" value="0.253125" />
+        <entry key="app/src/main/res/layout/info_container.xml" value="0.253125" />
         <entry key="app/src/main/res/layout/list_card_item.xml" value="0.253125" />
+        <entry key="app/src/main/res/layout/sat_scores_layout.xml" value="0.253125" />
         <entry key="app/src/main/res/layout/school_details_fragment.xml" value="0.253125" />
       </map>
     </option>
