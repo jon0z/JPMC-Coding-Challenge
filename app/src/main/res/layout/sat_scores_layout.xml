@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/sat_scores_placeholder"
         tools:text="@string/satAvgScoresPlaceholderText"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             tools:text="Math: 400"
-            android:textSize="12sp"/>
+            android:textSize="14sp"/>
 
         <TextView
             android:id="@+id/sat_reading_score"
@@ -35,7 +35,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             tools:text="Reading: 400"
-            android:textSize="12sp"/>
+            android:textSize="14sp"/>
 
         <TextView
             android:id="@+id/sat_writing_score"
@@ -44,6 +44,6 @@
             android:layout_weight="1"
             android:gravity="end"
             tools:text="Writing: 400"
-            android:textSize="12sp"/>
+            android:textSize="14sp"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.appcompat.widget.LinearLayoutCompat>

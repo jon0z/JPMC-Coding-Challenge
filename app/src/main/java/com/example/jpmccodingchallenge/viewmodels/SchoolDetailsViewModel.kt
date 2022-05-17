@@ -7,6 +7,9 @@ import com.example.jpmccodingchallenge.models.SATResults
 import com.example.jpmccodingchallenge.networking.Repository
 import kotlinx.coroutines.Dispatchers
 
+// For this project we could have used a single view model to handle all the data
+// related transactions but I decided to use a separate view model for the fragment
+// for future use cases where different api calls might be made only by the StudentDetailsFragment
 class SchoolDetailsViewModel : ViewModel() {
     private val repository = Repository()
 

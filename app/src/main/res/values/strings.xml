@@ -12,8 +12,8 @@
     <string name="missingSchoolDataWarningMessage">Looks like the school data is missing. We\'re sorry</string>
     <string name="contactInformationPlaceholderText">Contact Information</string>
     <string name="emailPlaceholderText">email: </string>
-    <string name="satAvgScoresPlaceholderText">SAT Average Scores:</string>
-    <string name="academic_opportunities_placeholder_text">Academic Opportunities:</string>
+    <string name="satAvgScoresPlaceholderText">SAT Average Scores</string>
+    <string name="academic_opportunities_placeholder_text">Academic Opportunities</string>
     <string name="website_placeholder_text">website: </string>
     <string name="phone_placeholder_text">phone: </string>
     <string name="address_placeholder_text">address: </string>

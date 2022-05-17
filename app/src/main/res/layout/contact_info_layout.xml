@@ -12,8 +12,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/contact_info_placeholder_text"
         tools:text="@string/contactInformationPlaceholderText"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp"/>
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,6 +26,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/email_placeholder_text"
             tools:text="email:"
+            android:textSize="14sp"
             android:layout_weight="1" />
         <TextView
             android:layout_width="0dp"
@@ -32,7 +35,7 @@
             tools:text="someemail@mail.com"
             android:textColor="@android:color/holo_blue_dark"
             android:layout_weight="3"
-            android:textSize="12sp"/>
+            android:textSize="14sp"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -45,6 +48,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/website_placeholder_text"
             tools:text="website:"
+            android:textSize="14sp"
             android:layout_weight="1" />
         <TextView
             android:layout_width="0dp"
@@ -53,7 +57,7 @@
             tools:text="www.school.com"
             android:textColor="@android:color/holo_blue_dark"
             android:layout_weight="3"
-            android:textSize="12sp"/>
+            android:textSize="14sp"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -66,6 +70,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/phone_placeholder_text"
             tools:text="phone:"
+            android:textSize="14sp"
             android:layout_weight="1" />
         <TextView
             android:layout_width="0dp"
@@ -73,7 +78,7 @@
             android:id="@+id/phone_value"
             tools:text="123-456-7890"
             android:layout_weight="3"
-            android:textSize="12sp"/>
+            android:textSize="14sp"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -86,6 +91,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/address_placeholder_text"
             tools:text="address:"
+            android:textSize="14sp"
             android:layout_weight="1" />
         <TextView
             android:layout_width="0dp"
@@ -93,6 +99,6 @@
             android:id="@+id/address_value"
             tools:text="123 Some street City, State 09876"
             android:layout_weight="3"
-            android:textSize="12sp"/>
+            android:textSize="14sp"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.appcompat.widget.LinearLayoutCompat>

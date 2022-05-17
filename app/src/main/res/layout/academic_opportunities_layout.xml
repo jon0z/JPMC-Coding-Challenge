@@ -12,12 +12,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/opportunities_placeholder_text"
         tools:text="@string/academic_opportunities_placeholder_text"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/opportunity_one"
         tools:text="opportunity 1, opportunity 2, opportunity 3, etc..."
-        android:textSize="12sp"/>
+        android:textSize="14sp"/>
 </androidx.appcompat.widget.LinearLayoutCompat>

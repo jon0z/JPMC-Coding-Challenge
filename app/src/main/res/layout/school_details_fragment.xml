@@ -18,6 +18,7 @@
         android:id="@+id/school_info_container"
         android:visibility="gone"
         android:fillViewport="true">
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="16dp"
                 android:textAlignment="viewStart"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 tools:text="Some really long description overview goes here" />
 
             <include

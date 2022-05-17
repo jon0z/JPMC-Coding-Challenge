@@ -11,6 +11,9 @@ class IntroActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityIntroBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // splash screen added here to prevent re-making the api call to get and display list
+        // of schools after a app is put in the background and brought back
+        // to the foreground by the user
         installSplashScreen()
         viewBinding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
