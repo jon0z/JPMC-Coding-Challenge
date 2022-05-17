@@ -8,10 +8,8 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
@@ -38,6 +36,7 @@ class SchoolDetailsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         mSchool = requireArguments().getSerializable("school") as School
     }
 
@@ -47,9 +46,35 @@ class SchoolDetailsFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.school_details_fragment, container, false)
         viewBinding = SchoolDetailsFragmentBinding.bind(view)
+        viewBinding.loadingProgressContainer.loadingPlaceholderText.text = "Loading School Details..."
         setActionBarTitle()
         getSchoolSATRecords()
         return viewBinding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.options_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId){
+            R.id.action_email -> {
+                emailSchoolIntent()
+                true
+            }
+            R.id.action_call -> {
+                callSchoolIntent()
+                true
+            }
+            R.id.action_website -> {
+                visitSchoolWebsiteIntent()
+                true
+            }
+            else -> {
+                false
+            }
+        }
     }
 
     private fun setActionBarTitle(){
@@ -63,6 +88,7 @@ class SchoolDetailsFragment : Fragment() {
             } else {
                 val schoolSATRecords = satResultsList.find { it.dbn == mSchool.dbn }
                 if (schoolSATRecords != null){
+                    hideLoadingIndicator()
                     setupUI(schoolSATRecords)
                 } else {
                     missingSchoolDataAlert(getString(R.string.missingSchoolDataWarningMessage))
@@ -71,11 +97,12 @@ class SchoolDetailsFragment : Fragment() {
         }
     }
 
-    // This method just sets the text values for the different textviews in the fragment layout
     private fun setupUI(satResults: SATResults) {
         setClickListeners()
-//        viewBinding.schoolName.text = mSchool.schoolName
         viewBinding.schoolOverview.text = mSchool.overview
+        // grades and students
+        viewBinding.gradesContainer.schoolGrades.text = mSchool.grades
+        viewBinding.gradesContainer.schoolNumberStudents.text = mSchool.totalStudents
         // academic opportunities
         viewBinding.academicOpportunitiesContainer.opportunitiesPlaceholderText.text = getString(R.string.academic_opportunities_placeholder_text)
         viewBinding.academicOpportunitiesContainer.opportunityOne.text = mSchool.academicOpportunities1
@@ -94,14 +121,17 @@ class SchoolDetailsFragment : Fragment() {
         viewBinding.contactInfoContainer.contactInfoPlaceholderText.text = getString(R.string.contactInformationPlaceholderText)
         viewBinding.contactInfoContainer.emailPlaceholderText.text = getString(R.string.emailPlaceholderText)
         viewBinding.contactInfoContainer.emailValue.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        viewBinding.contactInfoContainer.emailValue.text = mSchool.email
+        viewBinding.contactInfoContainer.emailValue.text = if(mSchool.email != null) mSchool.email else "N/A"
         viewBinding.contactInfoContainer.websitePlaceholderText.text = getString(R.string.website_placeholder_text)
         viewBinding.contactInfoContainer.websiteValue.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         viewBinding.contactInfoContainer.websiteValue.text = mSchool.website
         viewBinding.contactInfoContainer.phonePlaceholderText.text = getString(R.string.phone_placeholder_text)
         viewBinding.contactInfoContainer.phoneValue.text = mSchool.phone
-        viewBinding.contactInfoContainer.addressPlaceholderText.text = "address:"
-        val schoolAddress = mSchool.primaryAddressLine1.plus(" ").plus(mSchool.city).plus(", ").plus(mSchool.state).plus(" ").plus(mSchool.zipCode)
+        viewBinding.contactInfoContainer.addressPlaceholderText.text = getString(R.string.address_placeholder_text)
+        val schoolAddress = mSchool.primaryAddressLine1.plus(" ")
+            .plus(mSchool.city).plus(", ")
+            .plus(mSchool.state).plus(" ")
+            .plus(mSchool.zipCode)
         viewBinding.contactInfoContainer.addressValue.text = schoolAddress
     }
 
@@ -119,27 +149,46 @@ class SchoolDetailsFragment : Fragment() {
 
     private fun setClickListeners(){
         viewBinding.contactInfoContainer.websiteValue.setOnClickListener {
-            if (!mSchool.website.startsWith("https")){
-                val url = "https://".plus(mSchool.website)
-                val webBrowserIntent = Intent(Intent.ACTION_VIEW).apply {
-                    data = Uri.parse(url)
-                }
-                startActivity(webBrowserIntent)
-            }
+            visitSchoolWebsiteIntent()
         }
         viewBinding.contactInfoContainer.emailValue.setOnClickListener {
-            val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
-                data = Uri.parse("mailto:")
-                putExtra(Intent.EXTRA_EMAIL, mSchool.email)
-                putExtra(Intent.EXTRA_SUBJECT, "subject")
-            }
-            startActivity(emailIntent)
+            emailSchoolIntent()
         }
         viewBinding.contactInfoContainer.phoneValue.setOnClickListener {
-            val phoneDialIntent = Intent(Intent.ACTION_DIAL).apply {
-                data = Uri.parse("tel:${mSchool.phone}")
+            callSchoolIntent()
+        }
+    }
+
+    private fun visitSchoolWebsiteIntent(){
+        if (!mSchool.website.startsWith("https")){
+            val url = "https://".plus(mSchool.website)
+            val webBrowserIntent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse(url)
             }
-            startActivity(phoneDialIntent)
+            startActivity(webBrowserIntent)
+        }
+    }
+
+    private fun emailSchoolIntent(){
+        val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
+            data = Uri.parse("mailto:")
+            putExtra(Intent.EXTRA_EMAIL, mSchool.email)
+            putExtra(Intent.EXTRA_SUBJECT, "subject")
+        }
+        startActivity(emailIntent)
+    }
+
+    private fun callSchoolIntent(){
+        val phoneDialIntent = Intent(Intent.ACTION_DIAL).apply {
+            data = Uri.parse("tel:${mSchool.phone}")
+        }
+        startActivity(phoneDialIntent)
+    }
+
+    private fun hideLoadingIndicator(){
+        if(viewBinding.loadingProgressContainer.root.visibility == View.VISIBLE){
+            viewBinding.loadingProgressContainer.root.visibility = View.GONE
+            viewBinding.schoolInfoContainer.visibility = View.VISIBLE
         }
     }
 }

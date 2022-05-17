@@ -3,6 +3,8 @@ package com.example.jpmccodingchallenge.models
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
+// Class used to deserialize School JSON object from api response and convert it
+// to what is known as POJO (plain old Java object)
 data class School(
     val dbn: String,
     @SerializedName("school_name") val schoolName: String,
@@ -19,7 +21,7 @@ data class School(
     val location: String,
     @SerializedName("phone_number") val phone: String,
     @SerializedName("fax_number") val fax: String,
-    @SerializedName("school_email") val email: String,
+    @SerializedName("school_email") val email: String?,
     val website: String,
     val subway: String,
     val bus: String,

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.IntroActivity"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/welcome_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="32dp"
+        android:gravity="center_horizontal"
+        android:text="Welcome!"
+        android:textSize="22sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/introMessage"
+        android:textSize="16sp"
+        android:layout_below="@+id/welcome_title"
+        android:layout_marginTop="16dp"
+        android:id="@+id/intro_text" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/schools_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:background="@color/teal_700"
+        android:text="Explore Schools"
+        android:textColor="@color/text_color"
+        android:textAllCaps="false"
+        android:textSize="16sp"/>
+</RelativeLayout>

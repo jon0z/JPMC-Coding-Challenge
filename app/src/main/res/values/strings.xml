@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JPMC Coding Challenge</string>
+    <string name="app_name">NYC High Schools Explorer</string>
     <string name="api_url">https://data.cityofnewyork.us/</string>
     <string name="detailsFragmentTag">schoolDetailsFragment</string>
     <string name="nullSchoolListWarningMsg">Unable to get schools list. Please try again later.</string>
@@ -14,8 +14,10 @@
     <string name="emailPlaceholderText">email: </string>
     <string name="satAvgScoresPlaceholderText">SAT Average Scores:</string>
     <string name="academic_opportunities_placeholder_text">Academic Opportunities:</string>
-    <string name="website_placeholder_text">"website: "</string>
-    <string name="phone_placeholder_text">"phone: "</string>
+    <string name="website_placeholder_text">website: </string>
+    <string name="phone_placeholder_text">phone: </string>
+    <string name="address_placeholder_text">address: </string>
     <string name="schoolSportsPlaceholderText">School Sports</string>
     <string name="actionBarTitlePlaceholder">NYC High Schools</string>
+    <string name="introMessage">You can browse our Schools database to learn more about the High Schools available in NYC.\n\nContact information for each school is provided for you to quickly reach out to a school representative for more information.\n\nYou can call, email or visit the school\'s website, all from our app.\n\nEnjoy!</string>
 </resources>

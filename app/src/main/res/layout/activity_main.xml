@@ -7,6 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".views.MainActivity">
 
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/circular_progress_container"
+        layout="@layout/circular_progress_layout"
+        android:visibility="visible"/>
+
     <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

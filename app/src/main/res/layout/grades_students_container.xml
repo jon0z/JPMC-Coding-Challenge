@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="8"
+    android:paddingTop="16dp">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/grades_placeholder"
+        android:text="@string/gradesPlaceholderTxt"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_weight="2"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/school_grades"
+        tools:text="6-12"
+        android:textSize="12sp"
+        android:layout_weight="2"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/students_placeholder"
+        android:text="@string/studentsPlaceholderTxt"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_weight="2"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/school_number_students"
+        tools:text="500"
+        android:textSize="12sp"
+        android:layout_weight="2"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

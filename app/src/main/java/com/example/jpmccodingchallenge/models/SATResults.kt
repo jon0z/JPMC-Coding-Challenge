@@ -3,6 +3,8 @@ package com.example.jpmccodingchallenge.models
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
+// Class used to deserialize SAT results JSON object from api response and convert it
+// to what is known as POJO (plain old Java object)
 data class SATResults(
     val dbn: String,
     @SerializedName("school_name") val schoolName: String,

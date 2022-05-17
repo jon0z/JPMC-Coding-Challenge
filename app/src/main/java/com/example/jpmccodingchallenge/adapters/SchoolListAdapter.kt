@@ -5,21 +5,27 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jpmccodingchallenge.R
 import com.example.jpmccodingchallenge.models.School
 
-class SchoolListAdapter(private var schoolList: List<School>, private val context: Context, private val callback: (School)-> Unit): RecyclerView.Adapter<SchoolListAdapter.SchoolHolder>() {
+// Custom RecyclerView adapter responsible for populating the RecyclerView
+// with elements of the schools list
+class SchoolListAdapter(private var schoolList: List<School>,
+                        private val callback: (School)-> Unit): RecyclerView.Adapter<SchoolListAdapter.SchoolHolder>()
+{
 
     inner class SchoolHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val cardView: CardView = itemView.findViewById(R.id.cardview)
         val schoolName: TextView = itemView.findViewById(R.id.school_name)
-        val schoolAddressLine1: TextView = itemView.findViewById(R.id.school_address)
-        val schoolCityAndState: TextView = itemView.findViewById(R.id.school_city_state)
-        val schoolGrades: TextView = itemView.findViewById(R.id.school_grades)
-        val schoolNumberStudents: TextView = itemView.findViewById(R.id.school_number_students)
+        val schoolAddress: TextView = itemView.findViewById(R.id.school_address)
+        private val gradesStudentsContainer: LinearLayoutCompat = itemView.findViewById(R.id.grades_students_container)
+        val schoolGrades: TextView = gradesStudentsContainer.findViewById(R.id.school_grades)
+        val schoolNumberStudents: TextView = gradesStudentsContainer.findViewById(R.id.school_number_students)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SchoolHolder {
@@ -31,10 +37,10 @@ class SchoolListAdapter(private var schoolList: List<School>, private val contex
     override fun onBindViewHolder(holder: SchoolHolder, position: Int) {
         val schoolItem = schoolList[position]
         holder.schoolName.text = schoolItem.schoolName
-        holder.schoolAddressLine1.text = schoolItem.primaryAddressLine1
-        holder.schoolCityAndState.text = schoolItem.city.plus(", ").plus(schoolItem.state).plus(" ").plus(schoolItem.zipCode)
-        holder.schoolGrades.text =  context.getString(R.string.gradesPlaceholderTxt).plus(schoolItem.grades)
-        holder.schoolNumberStudents.text = context.getString(R.string.studentsPlaceholderTxt).plus(schoolItem.totalStudents)
+        val fullAddress = schoolItem.primaryAddressLine1.plus(" ").plus(schoolItem.city).plus(", ").plus(schoolItem.state).plus(" ").plus(schoolItem.zipCode)
+        holder.schoolAddress.text = fullAddress
+        holder.schoolGrades.text =  schoolItem.grades
+        holder.schoolNumberStudents.text = schoolItem.totalStudents
         holder.cardView.setOnClickListener {
             callback(schoolItem)
         }

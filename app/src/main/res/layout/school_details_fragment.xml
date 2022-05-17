@@ -5,51 +5,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.SchoolDetailsFragment">
-
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <include
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
-<!--        <TextView-->
-<!--            android:id="@+id/school_name"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center_horizontal"-->
-<!--            tools:text="SCHOOL NAME"-->
-<!--            android:textSize="16sp"-->
-<!--            android:textStyle="bold" />-->
-        <TextView
-            android:id="@+id/school_overview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="Some really long description overview goes here"
-            android:textAlignment="viewStart"
-            android:textSize="12sp"
-            android:paddingTop="8dp"/>
+        android:layout_height="match_parent"
+        android:id="@+id/loading_progress_container"
+        layout="@layout/circular_progress_layout"
+        android:visibility="visible"/>
 
-        <include
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/school_info_container"
+        android:visibility="gone"
+        android:fillViewport="true">
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sat_scores_container"
-            layout="@layout/sat_scores_layout"/>
+            android:orientation="vertical"
+            android:padding="8dp">
 
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/academic_opportunities_container"
-            layout="@layout/academic_opportunities_layout"/>
+            <TextView
+                android:id="@+id/school_overview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:textAlignment="viewStart"
+                android:textSize="12sp"
+                tools:text="Some really long description overview goes here" />
 
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/sports_container"
-            android:visibility="gone"
-            layout="@layout/academic_opportunities_layout"/>
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/contact_info_container"
-            layout="@layout/contact_info_layout"/>
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            <include
+                android:id="@+id/grades_container"
+                layout="@layout/grades_students_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/sat_scores_container"
+                layout="@layout/sat_scores_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/academic_opportunities_container"
+                layout="@layout/academic_opportunities_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/sports_container"
+                layout="@layout/academic_opportunities_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/contact_info_container"
+                layout="@layout/contact_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>
